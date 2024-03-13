@@ -1,0 +1,23 @@
+{
+  "name": "cypress-api-testing",
+  "version": "1.0.0",
+  "description": "This repo contains API Testing using Cypress.io",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/fazleyazdan/cypress-api-testing"
+  },
+  "keywords": [
+    "cypress",
+    "api",
+    "testing"
+  ],
+  "author": "fazle yazdan",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "cypress": "^13.6.6"
+  }
+}

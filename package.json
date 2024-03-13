@@ -19,5 +19,8 @@
   "license": "UNLICENSED",
   "dependencies": {
     "cypress": "^13.6.6"
+  },
+  "devDependencies": {
+    "cypress-xpath": "^2.0.1"
   }
 }

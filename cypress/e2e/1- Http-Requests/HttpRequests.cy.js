@@ -28,7 +28,7 @@ describe('Http Requests - Http Methods', ()=> {
         //* only the values should be inclosed in single or double quotes.
     })
 
-    //! Yes, in RESTful APIs, the HTTP POST method is commonly used to create a new resource or instance on the server. 
+    //! in RESTful APIs, the HTTP POST method is commonly used to create a new resource or instance on the server. 
     //! When you send a POST request to a specific endpoint, 
     //! you're telling the server to create a new resource with the provided data in the request body.
     it('POST method', ()=> {

@@ -74,4 +74,40 @@ describe('Post Request', ()=> {
 
     })
 
+
+    it('Approach 3 - Using Fixture', ()=> {
+
+        //! 'postbody' is the name of fixture file which contains requestbody data
+        cy.fixture('postbody').then( (data)=> {
+
+            const requestBody = data
+            
+            cy.request({
+                method: 'POST',
+                url: 'https://reqres.in/api/users',
+                body: requestBody
+            
+            }).then( (response)=>{
+    
+                expect(response.status).to.eq(201)                    
+                expect(response.body.email).to.eq(requestBody.email)
+                expect(response.body.first_name).to.eq(requestBody.first_name)
+                expect(response.body.last_name).to.eq(requestBody.last_name)
+
+                //! Note that we are only validating data of the property 
+                //! i.e email : 'abc@gmail.com'. Here 'email' is property and 'abc@gmail.com' is data.
+
+                //* Now we are going to validate the property and data at the same time
+
+                expect(response.body).has.property('email', requestBody.email)
+                expect(response.body).has.property('first_name', requestBody.first_name)
+                expect(response.body).has.property('last_name', requestBody.last_name)
+    
+            })
+        
+        })
+        
+
+    })
+
 })

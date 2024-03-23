@@ -15,7 +15,7 @@
 
 describe('Post Request', ()=> {
     
-    it('Approach 1 - Hard coded data', ()=> {
+    it('Approach 1 - Hard coded JSON object', ()=> {
 
         const requestBody = {
                         
@@ -36,6 +36,38 @@ describe('Post Request', ()=> {
             expect(response.body.email).to.eq('abc@gmail.com')
             expect(response.body.first_name).to.eq('fazle')
             expect(response.body.last_name).to.eq('yazdan')
+
+
+        })
+
+    })
+
+    //* in this approach we will dynamically generate JSON object.
+    //* for this purpose we will use Javascript function to work for us.
+
+    it('Approach 2 - dynamically generating JSON object', ()=> {
+
+        const requestBody = {
+                        
+                            email: Math.random().toString(5).substring(2)+"@gmail.com",    //! Here we are concatinating gmail with random string
+                            first_name: Math.random().toString(5).substring(2),   
+                            last_name: Math.random().toString(5).substring(2)
+
+                            //! Math.random generate random number, we then convert it to string & should contain 5 characters
+                            //! this will randomly generate data for us when requesting
+                          }
+
+        cy.request({
+            method: 'POST',
+            url: 'https://reqres.in/api/users',
+            body: requestBody
+        
+        }).then( (response)=>{
+
+            expect(response.status).to.eq(201)                    
+            expect(response.body.email).to.eq(requestBody.email)
+            expect(response.body.first_name).to.eq(requestBody.first_name)
+            expect(response.body.last_name).to.eq(requestBody.last_name)
 
 
         })

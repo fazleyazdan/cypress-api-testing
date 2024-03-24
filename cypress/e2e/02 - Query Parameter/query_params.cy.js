@@ -1,20 +1,24 @@
 //* https://reqres.in/api/users?page=2. (Here in this url after question mark. 'page=2' is a query parameter)
 //* we cannot hard code it in URL, instead we will try ways to pass it dynamically
 
-//! we can handle query parameter in cypress using 2 Approaches
+//! we can handle query parameter in cypress using 2 Approaches: Both will be in same test case
 //* 1 : we can pass the query parameter in http request body
 //* 2 : we can store the query in a variable and then pass it
 
-describe('Approach 1 - Query parameter', ()=> {
+describe('Query parameter', ()=> {
 
-    it('GET method - Approach 1', ()=> {
+    //! For Approach 2
+    const queryParam = {page : 2}
+    
+    it('Approach 1 & 2', ()=> {
 
         cy.request({
 
             method: "GET",
             url: "https://reqres.in/api/users",
-            qs: {page : 2}                              //! 'qs': used for query parameter
-        
+            qs: {page : 2},                              //! 'qs': is a keyword used for query parameter.
+            // qs: queryParam                               //! Approach 2: alternative of the above statement
+            
         }).then( (response)=>{
             
            expect(response.status).to.eq(200)           //! or

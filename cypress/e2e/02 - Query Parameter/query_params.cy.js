@@ -1,9 +1,10 @@
-//* https://reqres.in/api/users?page=2. (Here in this url after question mark. 'page=2' is a query parameter)
-//* we cannot hard code it in URL, instead we will try ways to pass it dynamically
-
 //! we can handle query parameter in cypress using 2 Approaches: Both will be in same test case
 //* 1 : we can pass the query parameter in http request body
 //* 2 : we can store the query in a variable and then pass it
+
+//! https://reqres.in/api/users?page=2. (Here in this url after question mark. 'page=2' is a query parameter)
+//* we will not hard code it in URL, instead we will try ways to pass it dynamically
+
 
 describe('Query parameter', ()=> {
 

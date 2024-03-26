@@ -1,5 +1,5 @@
 //! headers, cookies, bearer Token 
-// as part of the header we can pass token, sometimes cookies along with the request
+//* as part of the header we can pass token, sometimes cookies along with the request
 //! so i will use an API, which by sending request to will generate token.
 //! Note: the email should be different every time you hit the API. & the token will be generated.
 //! that token will be used as bearer token to send other type of requests which belong to the same API.

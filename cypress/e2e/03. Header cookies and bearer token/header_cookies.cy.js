@@ -79,5 +79,9 @@ describe ('Header & cookies', ()=> {
             expect(response.status).equal(200),
             expect(response.body).has.length(1)
         })
+
+        //! we could have used 'it blocks' instead of 'before', but since we cannot fetch order
+        //! without the completion of the above tasks in before block. and since each test case is 
+        //! separate from the other which cannot be used for this purpose. that's why we used 'before' block.
     })
 })

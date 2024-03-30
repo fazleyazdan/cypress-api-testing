@@ -62,6 +62,8 @@ describe('APIs Authentications', ()=> {
         .then( (response)=> {
 
             expect(response.status).equal(200)
+            expect(response.body[0].id).equal(757888148)
+
         })
     })
 })

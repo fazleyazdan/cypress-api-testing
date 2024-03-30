@@ -22,5 +22,48 @@ describe('APIs Authentications', ()=> {
             expect(response.body.authenticated).to.be.true
         })
     })
+
+
+    //! same like Basic auth, but you have to specify 'method' field in Auth, set its value to "digest"
+    it('Digest auth', ()=> {
+
+        cy.request({
+
+            method: "GET",
+            url: "https://postman-echo.com/basic-auth",
+            auth: {
+                username: "postman",
+                password: "password",
+                method: "digest"    
+            }
+        })
+        .then( (response)=> {
+
+            expect(response.status).equal(200)
+            expect(response.body.authenticated).to.be.true
+        })
+    })
+
+    //! Bearer Token: For bearer Token we have to generate the Token First and then request other services of API
+    //! i have already generated token so i will skip the part of generating it. for details look at '03. header cookies'
+    //! also you have to pass bearer token in header.
+    
+    it('Bearer Token auth', ()=> {
+
+        const bearerToken = "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"
+        cy.request({
+
+            method: "GET",
+            url: "https://api.github.com/user/repos",
+            headers: {
+                Authorization: 'Bearer '+ bearerToken
+            }
+        })
+        .then( (response)=> {
+
+            expect(response.status).equal(200)
+            expect(response.body[0].id).equal(757888148)
+        })
+    })
 })
 

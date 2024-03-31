@@ -44,8 +44,8 @@ describe('APIs Authentications', ()=> {
         })
     })
 
-    //! Bearer Token: For bearer Token we have to generate the Token First and then request other services of API
-    //! i have already generated token so i will skip the part of generating it. for details look at '03. header cookies'
+    //! Bearer Token: For bearer Token we have to generate the Token First and then request other services of same API
+    //! I have already generated token so i will skip the part of generating it. for details look at '03. header cookies'
     //! also you have to pass bearer token in header.
     
     it.skip('Bearer Token auth', ()=> {

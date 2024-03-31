@@ -1,16 +1,46 @@
-//* OAuth 2.0 : First Look At the screenshot Attached with the name 'OAuth 2.0.png'
+//! Pre requisite : look at "OAuth.png" first. Then 'Readme.js"
 
-//* There are 3 components in OAuth 2 Authentication.   [Client APP, Resource Server, Auth Server]
-//! 1. Client App: First we need to create a client App. 
-//* Github, Facebook etc support OAuth 2. As a first step we have to login to these site & create our client app.
-//* after creation we will get 'Client ID', 'Client Secret'.
+/*
+    1. Get OAuth2 Access Token
+    POST. https://github.com/login/oauth/access_token
+    Query Params:
+             ------
+             client_id
+             client_secret
+             code
 
-//! Now we will use 'client ID' & 'Client Secret' to send request to 'Auth Server'.
-//* In Response it will give us 'Auth code'.
-//* We need these 3 things 'Client ID', 'Client Secret' & 'Auth code' from Client App. to hit 'Auth Server' for 'OAuth 2.0 token'.
+    2. Send GET request by using access Token
+    GET. https://api.github.com/user/repos
+    Auth : accessToken 
 
-//! 2. Now as we have the token from 'Auth server'. we will hit the resource server.
-//* The resource server will not give us response immediately. 
-//* first it will verify the 'token' we have sent in request from 'Auth server'. after verification it will give the response.
+*/
 
+describe("OAuth2.0 authentication", ()=> {
 
+    it('Get OAuth2 access Token', ()=> {
+
+        cy.request({
+            
+            method: 'POST',
+            url: 'https://github.com/login/oauth/access_token',
+            qs: 
+            {
+                client_id : '9aad58815d36269fe258', 
+                client_secret : 'ff8eb824ace0c029c1dd8d61e5b43fd38ace1c9c',
+                code : ''
+            }
+        })
+        .then( (response)=> {
+
+            // access_token=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&scope=&token_type=bearer
+            //! we need only value of access token, therefore we will write logic to split the string & extract the token
+
+            
+        })
+    })
+})
+// Client ID 9aad58815d36269fe258
+// Client Secret ff8eb824ace0c029c1dd8d61e5b43fd38ace1c9c
+// https://github.com/login/oauth/authorize?client_id=9aad58815d36269fe258
+
+// https://sunnah.com/?code=6ed27cf5389e2c6c4fb2

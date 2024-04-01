@@ -19,6 +19,7 @@
 //! 3. after that we will hit resource server for resources.
 //* The resource server will not give response immediately. 
 //* first it will verify the 'token' we have sent in request from 'Auth server'. after verification it will give the response.
+//* we don't need to to do anything for that. the verification will happen internally
 
 //! We will Use Github to create Client App. [profile icon --> setting --> dev setting --> OAuth App]
 //* After The creation you will get Client ID and Client Secret.

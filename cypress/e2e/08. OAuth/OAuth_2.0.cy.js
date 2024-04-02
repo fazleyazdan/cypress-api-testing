@@ -42,6 +42,8 @@ describe("OAuth2.0 authentication", ()=> {
 
             const splitString = response.body.split('&')
             accessToken = splitString[0].split('=')[1]
+
+            //! here we have divided the string based on '='. we need the second part which comes after '=',index [1] represents
             cy.log(accessToken)
 
         })

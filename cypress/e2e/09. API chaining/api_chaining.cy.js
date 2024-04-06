@@ -1,9 +1,35 @@
 //! we send request to api 'A'. and it gives us response.
 //! now we use we response of api 'A' in a request call to another api 'B' and so on.
-//! this is called API chaining, when you use response of an API in a request call to another API to get resources.
+//! so Response of one API becomes request for another API, this is called API Chaining.
 
 
 describe('API chaining JSON placeholder', ()=> {
 
-    it()
+    it('Get all posts', ()=> {
+
+        cy.request({
+
+            method: 'GET',
+            url: 'https://jsonplaceholder.typicode.com/posts'
+        })
+        .then( (response)=> {
+            
+            expect(response.status).to.eq(200)
+            const postid = response.body[0].id
+            return postid                      //! sometimes it can be used without returning it
+        })
+        .then( (postid)=> {
+
+            cy.request({
+
+                method: 'GET',
+                url: `https://jsonplaceholder.typicode.com/comments?postId=${postid}`
+            })
+            .then( (response)=> {
+
+                expect(response.status).to.equal(200)
+                expect(response.body).to.has.length(5)
+            })
+        })
+    })
 })

@@ -16,7 +16,7 @@ describe('API chaining JSON placeholder', ()=> {
             
             expect(response.status).to.eq(200)
             const postid = response.body[0].id
-            return postid                      //! sometimes it can be used without returning it
+            return postid                 //! sometimes without returning anything, we can do next call. see 'crud_api_chaining'
         })
         .then( (postid)=> {
 

@@ -1,7 +1,7 @@
 # cypress-api-testing & Automation
 
 ### Topics Covered:
-1. HTTP Requests
+1. **HTTP Requests**
 2. Query Parameters
 3. Headers & cookies
 4. parsing JSON response
